@@ -1,15 +1,36 @@
 function computerPlay() {
-    // let choices = Array("rock", "paper", "scissors");
     const choices = new Array("rock", "paper", "scissors");
     var random = choices[Math.floor(Math.random()*choices.length)];
     return random; 
 }
 
 let score = 0;
+const rock = document.querySelector(".rock-btn");
+const paper = document.querySelector(".paper-btn");
+const scissors = document.querySelector(".scissors-btn");
+
+function choice() {
+    rock.addEventListener("click", e => {
+        console.log("P: rock");
+        return "rock";
+    });
+
+paper.addEventListener("click", e => {
+        console.log("P: paper");
+        return "paper";
+    });
+
+scissors.addEventListener("click", e => {
+        console.log("P: scissors");
+        return "scissors";
+    });
+    playRound();
+}
+
+
 
 function playRound(playerSelection, computerSelection) {
-    let entry = prompt("Please enter rock, paper or scissors");
-    let selection = entry.toLowerCase();
+    let selection = choice()
     let computer = computerPlay();
     console.log("comp: "+computer);
     console.log("player: "+selection);
@@ -44,10 +65,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound();
-        
-     }
+    // for (let i = 0; i < 5; i++) {
+    //     playRound();
+    //  }
      console.log("Game Over! You scored: " +score);
 }
 
